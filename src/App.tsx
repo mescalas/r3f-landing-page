@@ -3,6 +3,7 @@ import { Suspense, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import type { Mesh } from "three";
 import { useGLTF, Environment } from "@react-three/drei";
+import { EffectComposer, DepthOfField } from "@react-three/postprocessing";
 
 function Basketball({ z }: { z: number }) {
   const { nodes, materials } = useGLTF("/basketball-v1-transformed.glb");
@@ -21,13 +22,11 @@ function Basketball({ z }: { z: number }) {
   useFrame(() => {
     meshRef.current.rotation.set(
       (data.randomX += 0.001),
-      (data.randomY += 0.004),
-      (data.randomZ += 0.005)
+      (data.randomY += 0.001),
+      (data.randomZ += 0.001)
     );
     meshRef.current.position.set(data.x * width, (data.y += 0.01), z);
-    if (data.y > height / 1.5) {
-      data.y = -height / 1.5;
-    }
+    if (data.y > height) data.y = -height;
   });
 
   return (
@@ -41,16 +40,30 @@ function Basketball({ z }: { z: number }) {
   );
 }
 
-export default function App({ count = 100 }: { count: number }) {
+export default function App({
+  count = 100,
+  depth = 80,
+}: {
+  count: number;
+  depth: number;
+}) {
   return (
-    <Canvas>
-      <ambientLight intensity={0.2} />
-      <spotLight position={[10, 10, 10]} intensity={2} />
+    <Canvas gl={{ alpha: false }} camera={{ near: 0.01, far: 110, fov: 30 }}>
+      <color attach="background" args={["#9c380d"]} />
+      <spotLight position={[10, 10, 10]} intensity={1} />
       <Suspense fallback={null}>
         <Environment preset="sunset" />
         {Array.from({ length: count }).map((_, i) => (
-          <Basketball key={i} z={-i - 1} />
+          <Basketball key={i} z={-(i / count) * depth - 20} />
         ))}
+        <EffectComposer>
+          <DepthOfField
+            target={[0, 0, depth / 3]}
+            focalLength={0.5}
+            bokehScale={11}
+            height={700}
+          />
+        </EffectComposer>
       </Suspense>
     </Canvas>
   );
