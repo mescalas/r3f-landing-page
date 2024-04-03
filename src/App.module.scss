@@ -1,0 +1,25 @@
+.title {
+  color: #f1efef;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  font-family: "Nyght Serif", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  justify-content: flex-start;
+  letter-spacing: -2px;
+  line-height: 6.5rem;
+  font-size: 8rem;
+  font-weight: 300;
+}
+
+.subtitle {
+  font-size: 2rem;
+  letter-spacing: 0;
+}
+
+@media screen and (max-width: 935px) {
+  .title {
+    font-size: 5rem;
+  }
+}

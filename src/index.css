@@ -1,3 +1,38 @@
+@font-face {
+  font-family: "Nyght Serif";
+  src: url("public/font/NyghtSerif-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nyght Serif";
+  src: url("public/font/NyghtSerif-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nyght Serif";
+  src: url("public/font/NyghtSerif-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Nyght Serif";
+  src: url("public/font/NyghtSerif-RegularItalic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+
+p {
+  font-family: "Nyght Serif", sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
 html, body, #root {
   margin: 0;
   padding: 0;
