@@ -1,8 +1,8 @@
 .slider_container {
   position: absolute;
   top: 50%;
-  right: 0;
-  transform: translateY(-50%) rotateZ(-90deg);
+  right: 5%;
+  transform: translateY(-50%) translateX(40%) rotateZ(-90deg);
 }
 
 input[type="range"] {

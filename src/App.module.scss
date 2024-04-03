@@ -16,8 +16,12 @@
 }
 
 .subtitle {
+  display: flex;
+  gap: 12px;
+  align-items: center;
   font-size: 2rem;
   letter-spacing: 0;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 935px) {
@@ -45,4 +49,11 @@
   pointer-events: none;
   background: #7d7c7c;
   animation: fade 4s normal forwards ease-in-out;
+}
+
+.line {
+  margin-top: 8px;
+  width: 30px;
+  height: 1px;
+  background-color: white;
 }
