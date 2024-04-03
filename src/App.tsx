@@ -11,6 +11,7 @@ export default function App() {
     <>
       <Suspense fallback={null}>
         <Basketballs speed={speed} />
+        <div className={styles.fade_in} />
       </Suspense>
       <div className={styles.title}>
         <p>

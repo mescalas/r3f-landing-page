@@ -1,4 +1,6 @@
 .title {
+  display: flex;
+  flex-direction: column;
   color: #f1efef;
   position: absolute;
   top: 5%;
@@ -22,4 +24,24 @@
   .title {
     font-size: 5rem;
   }
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade_in {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: #7d7c7c;
+  animation: fade 4s normal forwards ease-in-out;
 }
